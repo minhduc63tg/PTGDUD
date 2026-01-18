@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let bills = [125, 155, 44];
+        const calcTip = (bill) => {
+            return (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.2;
+        }
+
+        let tips = [];
+        let totals = [];
+        bills.forEach((bill) => {
+            let tip = calcTip(bill);
+            tips.push(tip);
+            totals.push(bill + tip);
+            console.log(`Bill: ${bill}, Tip: ${tip.toFixed(2)}, Total: ${(bill + tip).toFixed(2)}`);
+        });
+
+    </script>
+</body>
+
+</html>

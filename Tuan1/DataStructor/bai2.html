@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const game = {
+            team1: 'Bayern Munich',
+            team2: 'Borussia Dortmund',
+            players: [
+                [
+                    'Neuer',
+                    'Pavard',
+                    'Martinez',
+                    'Alaba',
+                    'Davies',
+                    'Kimmich',
+                    'Goretzka',
+                    'Coman',
+                    'Gnarby',
+                    'Muller',
+                    'Lewandowski'
+                ],
+                [
+                    'Burki',
+                    'Schulz',
+                    'Akanji',
+                    'Hummels',
+                    'Hakimi',
+                    'Weigl',
+                    'Witsel',
+                    'Hazard',
+                    'Brandt',
+                    'Gotze',
+                    'Sancho'
+                ]
+            ],
+            score: '4:0',
+            scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+            date: 'Nov 9th, 2037',
+            odds: {
+                team1: 1.33,
+                x: 3.25,
+                team2: 6.5
+            }
+        };
+
+
+        // in ra tên cầu thủ ghi bàn và tổng số bàn thắng
+        function printGoals(...playerNames) {
+            console.log("Những cầu thủ ghi bàn:");
+            playerNames.forEach((index, name) => {
+                console.log(`\nGoal ${index + 1}: ${name}`);
+            });
+
+        }
+
+        // tính trung bình các số lẻ
+        const { team1, x: draw, team2 } = game.odds;
+        const averageOdd = (team1 + draw + team2) / 3;
+        console.log(`Trung bình các số lẻ là: ${averageOdd}`);
+        // in ra các tỷ lệ cược
+        for (const [team, odd] of Object.entries(game.odds)) {
+            const teamStr = team === 'x' ? 'Hòa' : `Chiến thắng ${game[team]}`;
+            console.log(`Tỷ lệ cược cho ${teamStr}: ${odd}`);
+        }
+        // tạo object chứa tên cầu thủ và số bàn thắng
+        const scorers = {};
+        for (const player of game.scored) {
+            scorers[player] ? scorers[player]++ : scorers[player] = 1;
+        }
+        console.log(scorers);
+
+
+        // Test 
+        console.log("Test 1 - một số cầu thủ:");
+        printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+
+        console.log("\nTest 2 - những cầu thủ ghi bàn thực tế:");
+        printGoals(...game.scored);
+
+        console.log(
+            `${game.team1} là đội có khả năng thắng cao hơn`.repeat(team1 < team2) +
+            `${game.team2} là đội có khả năng thắng cao hơn`.repeat(team2 < team1)
+        );
+    </script>
+</body>
+
+</html>

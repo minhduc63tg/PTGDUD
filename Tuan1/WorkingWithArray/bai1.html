@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const checkDogs = (dogsJulia, dogsKate) => {
+            const dogsJuliaCorrected = dogsJulia.slice();
+            dogsJuliaCorrected.splice(0, 1); // remove first dog
+            dogsJuliaCorrected.splice(-2);   // remove last two dogs
+
+            const allDogs = dogsJuliaCorrected.concat(dogsKate);
+
+            allDogs.forEach((age, i) => {
+                const type = age >= 3 ? 'trưởng thành' : 'chó con';
+                console.log(`Chó số ${i + 1} là một ${type}, và nó ${age} tuổi`);
+            });
+        };
+
+        // Test data
+        const dogsJulia1 = [3, 5, 2, 12, 7];
+        const dogsKate1 = [4, 1, 15, 8, 3];
+
+        const dogsJulia2 = [9, 16, 6, 8, 3];
+        const dogsKate2 = [10, 5, 6, 1, 4];
+
+        console.log("Test Data 1:");
+        checkDogs(dogsJulia1, dogsKate1);
+        console.log("\nTest Data 2:");
+        checkDogs(dogsJulia2, dogsKate2);
+
+    </script>
+</body>
+
+</html>

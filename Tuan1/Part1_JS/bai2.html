@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="Mweight" placeholder="Mark weight">
+    <input type="number" id="Mheight" placeholder="Mark height">
+    <input type="number" id="Jweight" placeholder="John weight">
+    <input type="number" id="Jheight" placeholder="John height">
+
+    <button id="cal">Calculate BMI</button>
+
+    <script>
+
+        const calc = document.getElementById('cal');
+        calc.onclick = () => {
+            const Mmass = Number(document.getElementById("Mweight").value);
+            const Mheight = Number(document.getElementById("Mheight").value);
+            const Jmass = Number(document.getElementById("Jweight").value);
+            const Jheight = Number(document.getElementById("Jheight").value);
+
+            const MarkBMI = Mmass / (Mheight ** 2);
+            const JohnBMI = Jmass / (Jheight ** 2);
+
+            if (MarkBMI > JohnBMI) {
+                console.log(`Mark's BMI (${MarkBMI.toFixed(2)}) is higher than John's (${JohnBMI.toFixed(2)})`);
+            } else if (JohnBMI > MarkBMI) {
+                console.log(`John's BMI (${JohnBMI.toFixed(2)}) is higher than Mark's (${MarkBMI.toFixed(2)})`);
+            } else {
+                console.log(`Both have the same BMI: ${MarkBMI.toFixed(2)}`);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

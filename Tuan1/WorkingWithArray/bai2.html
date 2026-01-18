@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const calcAverageHumanAge = (ages) => {
+            const humanAges = ages.map(age => age <= 2 ? age * 2 : 16 + age * 4);
+            const adultAges = humanAges.filter(age => age >= 18);
+            const averageAge = adultAges.reduce((acc, age) => acc + age, 0) / adultAges.length;
+            return averageAge;
+        }
+        console.log("test 1\n")
+        const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+        console.log(`Average age: ${avg1}`);
+        console.log("\ntest 2\n")
+        const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+        console.log(`Average age: ${avg2}`);
+
+
+
+        
+
+
+    </script>
+</body>
+
+</html>
