@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Image Loading Challenge</title>
+    <style>
+        .images img {
+            width: 300px;
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Image Loading with Promise</h2>
+    <div class="images"></div>
+
+    <script>
+        const imgContainer = document.querySelector('.images');
+        let currentImage;
+
+
+        function wait(seconds) {
+            return new Promise(resolve => {
+                setTimeout(resolve, seconds * 1000);
+            });
+        }
+
+        // PART 1
+        function createImage(imgPath) {
+            return new Promise((resolve, reject) => {
+                const img = document.createElement('img');
+                img.src = imgPath;
+
+                img.addEventListener('load', () => {
+                    imgContainer.appendChild(img);
+                    resolve(img);
+                });
+
+                img.addEventListener('error', () => {
+                    reject(new Error('Image not found: ' + imgPath));
+                });
+            });
+        }
+
+        // PART 2
+        createImage('img/car1.jpg')
+            .then(img => {
+                currentImage = img;
+                return wait(2);
+            })
+            .then(() => {
+                currentImage.style.display = 'none';
+                return createImage('img/car2.jpg');
+            })
+            .then(img => {
+                currentImage = img;
+                return wait(2);
+            })
+            .then(() => {
+                currentImage.style.display = 'none';
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    </script>
+
+</body>
+
+</html>
