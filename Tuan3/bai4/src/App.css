@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  padding: 20px;
+}
+
+/* FLEX CONTAINER */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  /* QUAN TRỌNG */
+  margin: -10px;
+  /* để bù padding item */
+}
+
+/* FLEX ITEM */
+.product {
+  width: 33.333%;
+  /* Desktop: 3 cột */
+  padding: 10px;
+}
+
+.product>div {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* CARD STYLE */
+.product {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .product {
+    width: 50%;
+    /* 2 cột */
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .product {
+    width: 100%;
+    /* 1 cột */
+  }
+}

@@ -1,0 +1,13 @@
+.product-card button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #ff6b00;
+  color: #fff;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  transform: scale(1.05);
+}
